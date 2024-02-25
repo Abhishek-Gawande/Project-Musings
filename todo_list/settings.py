@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["project-musings-production.up.railway.app"]
 
-
+CSRF_TRUSTED_ORIGINS=['https://project-musings-production.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
