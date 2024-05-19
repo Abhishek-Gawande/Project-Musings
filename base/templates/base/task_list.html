@@ -1,7 +1,7 @@
 {% extends 'base/main.html' %} {% block content %}
 <div class="container2">
     <h2>Quote Of the Day</h2>
-    <h3><q>There are only two kinds of languages: the ones people complain about and the ones nobody uses</q>-Bjarne Stroustrup</h3>
+    <h3><q>"In God we trust. All others must bring data</q>-W. Edwards Demming</h3>
 </div>
 
 
@@ -59,7 +59,10 @@
     </div>
     {% endfor %}
 </div>
+<textarea id="area"  placeholder="Mukta can write here.." >
 
+</textarea>
+<button style="font-size: 15px; "  onclick="localStorage.removeItem('area');area.value=''">Clear</button>
 <script>
     var taskList = document.getElementById("tasklist");
     var reorderForm = document.getElementById("reorderForm");
@@ -71,7 +74,7 @@
         chosenClass: 'selectedTask',
 
     });
-
+    
     function reordering() {
         const rows = document.getElementsByClassName("task-wrapper");
         let pos = [];
@@ -84,6 +87,11 @@
     }
 
     document.ondrop = reordering
+
+    area.value = localStorage.getItem('area');
+    area.oninput = () => {
+      localStorage.setItem('area', area.value)
+    };
 </script>
 
 {% endblock content %}
